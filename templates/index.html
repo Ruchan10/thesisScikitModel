@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-ray Classification</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      input[type="file"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #333;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      h2 {
+        margin-top: 20px;
+        color: #333;
+      }
+
+      p {
+        color: #555;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>X-ray Classification</h1>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" action="/" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".png, .jpg, .jpeg" />
+      <button type="submit">Upload</button>
+    </form>
+
+    {% if diagnosis %}
+    <h2>Diagnosis:</h2>
+    <p>{{ diagnosis }}</p>
+    {% endif %}
+  </body>
+</html>
